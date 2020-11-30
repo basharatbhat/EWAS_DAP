@@ -788,20 +788,6 @@ link		<-		paste("Hi,\n\nHere is the data analysis result.\n", number_of_dmps, "\
 
 send.mail(from="ewasdap20@gmail.com", to = email, subject = "EWAS Data analysis result", body = link, smtp = list(host.name = "smtp.gmail.com", port = 465, user.name = "ewasdap20@gmail.com", passwd = "dzofhekyhipuncqy", ssl = TRUE), authenticate = TRUE, send = TRUE)
 
-
-#OutApp					<-		COMCreate("Outlook.Application")
-#outMail					=		OutApp$CreateItem(0)
-#outMail[["To"]]			=		email
-#outMail[["subject"]]	=		"EWAS Data analysis result."
-#outMail[["body"]]		=		paste("Hi,\n\nHere is the data analysis result.\n\n", link, sep="")
-#email_status			<-		outMail$Send()
-
-#if(email_status) {
-#	output		<-	paste(output, "EMAIL,1", sep="**")
-#} else {
-#	output		<-	paste(output, "EMAIL,0", sep="**")
-#}
-
 file	<-	paste(foldername, "/Analysis_Summary.txt", sep = "")
 write.table(output, file, append = FALSE, row.names = FALSE, col.names = FALSE)
 
